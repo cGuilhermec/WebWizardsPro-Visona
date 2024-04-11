@@ -1,0 +1,109 @@
+
+.bloco{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    margin: -8px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    background-color: #bbbaba;
+}
+
+.bloco1{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 85%;
+    background-color: #888;
+    align-items: center;
+    justify-content: end;
+
+    border-radius: 30px;
+
+    background-image: url("../images/loginPage/webvis.jpg");
+}
+.bloco2{
+    display: flex;
+    background-color: rgba(72, 85, 69, 0.55);
+    width: 27%;
+    height: 80%;
+
+    margin-right: 50px;
+    padding: 20px;
+    border-radius: 30px;
+    justify-content: center;
+}
+
+.bloco3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.boxbaixo{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoBranca{
+    width: 70%;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+input{
+    border-radius: 30px;
+    width: 75%;
+    height: 45px;
+    border: 0px;
+    margin-top: 25px;
+    padding-left: 10%;
+}
+
+.inputbox{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+input [type=text] {
+    padding-left: 5%;
+}
+
+.loginbtn{
+    color: white;
+    background-color: #fc6804;
+    width: 50%;
+    height: 50px;
+    border-radius: 30px;
+    border: 2.5px;
+    transition: 0.4s;
+    margin-top: 50px;
+
+    font-size: large;
+}
+
+.loginbtn:hover{
+    height: 55px;
+    width: 55%;
+    background-color: transparent;
+    border-color: #fc6804;
+    border-style: solid;
+    cursor: pointer;
+    margin-top: 45px;
+}
