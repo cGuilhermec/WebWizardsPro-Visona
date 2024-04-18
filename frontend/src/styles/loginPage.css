@@ -32,7 +32,7 @@
 
     margin-right: 50px;
     padding: 20px;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     justify-content: center;
 }
 
@@ -64,7 +64,7 @@
 }
 
 input{
-    width: 75%;
+    width: 100%;
     height: 30px;
     border: none;
     margin-top: 37px;
@@ -165,9 +165,9 @@ input:focus + .focus-input::before{
 .loginbtn{
     color: white;
     background-color: #fc6804;
-    width: 50%;
+    width: 70%;
     height: 50px;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     border: 2.5px;
     transition: 0.4s;
     margin-top: 50px;
@@ -177,7 +177,7 @@ input:focus + .focus-input::before{
 
 .loginbtn:hover{
     height: 53px;
-    width: 53%;
+    width: 73%;
     background-color: transparent;
     border-color: #fc6804;
     border-style: solid;
