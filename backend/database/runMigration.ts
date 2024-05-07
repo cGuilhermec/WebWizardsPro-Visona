@@ -22,7 +22,7 @@ import { createConection } from "./connection";
                     console.log(err);
                 }
                 const runMigrationQuery = content.toString();
-
+                  await client.query(runMigrationQuery);  
             })
         })
     })
