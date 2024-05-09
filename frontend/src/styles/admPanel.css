@@ -1,0 +1,49 @@
+body {
+  display: flex;
+  
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  background-color: #e4bca7;
+  overflow: hidden;
+}
+
+.cardcontainer {
+  display: flex;
+  height: 900px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cardcontainer::before{
+  opacity: 0.5;
+}
+
+.img-boxmap {
+  position: absolute;
+  width: 361px;
+  height: 259px;
+  top: 93px;
+  left: 1180.33px;
+  rotate: -171.82º;
+  opacity: 60%;
+}
+
+.img-boxsat {
+  position: absolute;
+  width: 361px;
+  height: 259px;
+  bottom: 0;
+  /* Posicionando a imagem no fundo da tela */
+  left: 0;
+  /* Posicionando a imagem no canto esquerdo */
+  transform: rotate(-171.82deg);
+}
