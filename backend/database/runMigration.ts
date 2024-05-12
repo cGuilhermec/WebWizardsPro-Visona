@@ -26,4 +26,5 @@ import { createConection } from "./connection";
             })
         })
     })
+    console.log("Migrate feita com sucesso! ", new Date());
 })();
