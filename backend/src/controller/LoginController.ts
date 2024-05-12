@@ -21,7 +21,6 @@ export const loginUser = async (req: Request, res: Response) => {
 
         const token = await LoginService.authenticate(user);
 
-        console.log(token);
 
         if(token) {
 
