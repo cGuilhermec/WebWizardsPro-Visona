@@ -4,7 +4,7 @@ import { userModel } from "../model/UserModel";
 import { hash } from 'bcryptjs';
 
 
-const createUser = async ( user: IUserInterface, id: string ) => {
+const createUser = async ( user: IUserInterface, id: string) => {
 
     try {
         
