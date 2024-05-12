@@ -1,15 +1,17 @@
 import express from "express";
 import { userController } from "../controller/UserController";
 import { loginUser } from "../controller/LoginController";
+import { authenticateToken } from "../middlewares/AuthMiddleware";
 
 export const router = express.Router();
 
-router.post('/new-user/:id', userController.createUser);
-router.get('/users/:id', userController.getAllUsers);
-router.get('/unique-user/:id', userController.getUserById);
-router.post('/att-user/:id', userController.updateUserById);
-router.post('/delete-user/:id', userController.desativarUserById);
-router.post('/reativar-user/:id', userController.reativarUserById);
+//Rotas Privadas, precisa do token.
+router.post('/new-user/:id', authenticateToken, userController.createUser);
+router.get('/users/:id', authenticateToken, userController.getAllUsers);
+router.get('/unique-user/:id', authenticateToken, userController.getUserById);
+router.post('/att-user/:id', authenticateToken, userController.updateUserById);
+router.post('/delete-user/:id', authenticateToken, userController.desativarUserById);
+router.post('/reativar-user/:id', authenticateToken, userController.reativarUserById);
 
-
+//Rotas publicas, não precisa de token.
 router.post('/login', loginUser);
