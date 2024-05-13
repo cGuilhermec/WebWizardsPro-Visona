@@ -18,7 +18,7 @@ const authenticate = async (user: ILoginInterface): Promise<string | null> => {
 
     if(!isValidPassword) return ('isValidPassword: '+ null)
 
-    const token = jwt.sign({ id: userLoginAuth.id, email: userLoginAuth.email, role: userLoginAuth.role }, SECRET_KEY);
+    const token = jwt.sign({ id: userLoginAuth.id, email: userLoginAuth.email, name: userLoginAuth.name, role: userLoginAuth.role }, SECRET_KEY);
 
     return token;
 

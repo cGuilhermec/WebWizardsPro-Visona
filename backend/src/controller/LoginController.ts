@@ -28,8 +28,9 @@ export const loginUser = async (req: Request, res: Response) => {
             const decodedToken: any = jwt.verify(token, SECRET_KEY);
             const role = decodedToken.role;
             const userId = decodedToken.id;
+            const name = decodedToken.name;
 
-            res.status(200).json({ message: 'Usuário autenticado com sucesso!', token, user: user.email, role, userId });
+            res.status(200).json({ message: 'Usuário autenticado com sucesso!', token, user: user.email, role, userId, name });
 
         } else {
             res.status(400).json({ message: 'Credenciais inválidas!' });
