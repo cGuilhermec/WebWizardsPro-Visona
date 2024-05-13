@@ -13,7 +13,7 @@ const createUser = async ( req: Request, res: Response ) => {
             return res.status(200).json({message: "Usuário criado com sucesso"});
 
         } else if(typeof result === "string") {
-            res.status(409).json({message: result});
+            res.status(201).json({message: result});
 
         } else {
             res.status(500).json({message: "Ocorreu um erro no interno."});
