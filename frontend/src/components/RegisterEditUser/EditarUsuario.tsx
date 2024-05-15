@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, FormEvent } from "react";
 // @ts-ignore
 import dropdown from "../../images/registerEditUser/dropdown.png";
 // @ts-ignore
 import dropdown_white from "../../images/registerEditUser/dropdown_white.png";
 import { useAllUsers } from "../../context/getAllUsers";
 import { User } from "../../interfaces/IUser";
+import useUpdateUser from "../../context/useUpdateUser";
 
 export default function EditarUsuario() {
   // Estado para controlar se o dropdown está aberto ou fechado
@@ -21,23 +22,28 @@ export default function EditarUsuario() {
   const userId = localStorage.getItem("@Auth:userId");
   const users = useAllUsers(userId || "");
 
+  const id = selectedUser?.id;
+  const { nameRef, emailRef, roleRef, handleSubmit, updatedUser } =
+    useUpdateUser(id || "");
+
+  // Função para lidar com o clique fora do dropdown
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      setIsOpen(false);
+    }
+  };
+
   // Efeito para adicionar ouvinte de eventos para fechar o dropdown quando clicado fora dele
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setIsOpen(false);
-      }
-    }
-
     document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [updatedUser]);
 
   // Função para lidar com a seleção de um usuário
   const handleUserSelect = (user: User) => {
@@ -46,30 +52,6 @@ export default function EditarUsuario() {
     setEmailInput(user.email);
     setRoleInput(user.role);
     setIsOpen(false); // Fecha o dropdown após selecionar um usuário
-  };
-
-  // Função para lidar com o envio das alterações
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (selectedUser) {
-      const updatedUsers = users.map((user) =>
-        user === selectedUser
-          ? { ...user, nome: nomeInput, email: emailInput, role: roleInput }
-          : user
-      );
-      // Atualiza o usuário selecionado com as informações alteradas
-      setSelectedUser({
-        ...selectedUser,
-        name: nomeInput,
-        email: emailInput,
-        role: roleInput,
-      });
-
-      // Limpa os inputs
-      setNomeInput("");
-      setEmailInput("");
-      setRoleInput("");
-    }
   };
 
   return (
@@ -96,7 +78,7 @@ export default function EditarUsuario() {
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="form-edit-user">
+      <form className="form-edit-user">
         <div className="inputs">
           <label htmlFor="" className="labels">
             Nome:{" "}
@@ -105,6 +87,7 @@ export default function EditarUsuario() {
             type="text"
             placeholder="Nome e Sobrenome"
             value={nomeInput}
+            ref={nameRef}
             onChange={(e) => setNomeInput(e.target.value)}
           />
         </div>
@@ -117,6 +100,7 @@ export default function EditarUsuario() {
             type="text"
             placeholder="usuario@visiona.com.br"
             value={emailInput}
+            ref={emailRef}
             onChange={(e) => setEmailInput(e.target.value)}
           />
         </div>
@@ -125,6 +109,7 @@ export default function EditarUsuario() {
           <select
             className="inputs"
             value={roleInput}
+            ref={roleRef}
             onChange={(e) => setRoleInput(e.target.value)}
           >
             <option value="adm" className="option-content">
@@ -139,7 +124,14 @@ export default function EditarUsuario() {
           </select>
         </div>
         <div className="btnsubmit">
-          <button>Confirmar</button>
+          <button
+            onClick={async (e: FormEvent) => {
+              e.preventDefault();
+              await handleSubmit();
+            }}
+          >
+            Confirmar
+          </button>
         </div>
       </form>
     </div>
