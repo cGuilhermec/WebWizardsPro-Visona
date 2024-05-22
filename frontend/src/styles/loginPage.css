@@ -2,7 +2,7 @@
 .bloco{
     display: flex;
     width: 100vw;
-    height: 100vh;
+    height: 103vh;
     margin: -8px;
     align-items: center;
     justify-content: center;
@@ -183,11 +183,8 @@ input:focus + .focus-input::before{
 }
 
 .loginbtn:hover{
-    height: 53px;
-    width: 73%;
     background-color: transparent;
     border-color: #fc6804;
     border-style: solid;
     cursor: pointer;
-    margin-top: 47px; /*alterar caso altere o height, para não mover os campos de input*/
 }

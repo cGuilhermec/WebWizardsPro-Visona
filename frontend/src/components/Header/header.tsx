@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./header.css";
 import HomeButton from "./buttons/HomeButton";
 import NotificationButton from "./buttons/NotificationButton";
@@ -7,6 +6,7 @@ import NotificationButton from "./buttons/NotificationButton";
 import logo from "../../images/header/logo_visiona_preto.png";
 import Perfil from "./buttons/Perfil";
 import DarkMode from "./buttons/DarkMode";
+
 
 export default function Header(){
 

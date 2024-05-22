@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, FormEvent } from "react";
+import { useState, useRef, FormEvent, useEffect } from "react";
 // @ts-ignore
 import dropdown from "../../images/registerEditUser/dropdown.png";
 // @ts-ignore
@@ -6,16 +6,20 @@ import dropdown_white from "../../images/registerEditUser/dropdown_white.png";
 import { useAllUsers } from "../../context/getAllUsers";
 import { User } from "../../interfaces/IUser";
 import useUpdateUser from "../../context/useUpdateUser";
+import { motion as m } from "framer-motion";
 
 export default function EditarUsuario() {
   // Estado para controlar se o dropdown está aberto ou fechado
   const [isOpen, setIsOpen] = useState(false);
+
   // Estado para o usuário selecionado
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
+
   // Estados para os campos de alteração
   const [nomeInput, setNomeInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
   const [roleInput, setRoleInput] = useState("");
+
   // Referência para o elemento do botão dropdown
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -55,7 +59,13 @@ export default function EditarUsuario() {
   };
 
   return (
-    <div ref={dropdownRef} className="container-data-2 ">
+    <m.div
+      initial={{ x: 1000 }}
+      animate={{ x: 0 }}
+      transition={{ duration: 0.5 }}
+      ref={dropdownRef}
+      className="container-data-2 "
+    >
       <div className="container-dropdown-user">
         <div className="dropdown-edit-user">
           <button onClick={() => setIsOpen(!isOpen)} className="btn-dropdown1">
@@ -91,7 +101,6 @@ export default function EditarUsuario() {
             onChange={(e) => setNomeInput(e.target.value)}
           />
         </div>
-
         <div className="inputs">
           <label htmlFor="" className="labels">
             E-mail:{" "}
@@ -123,6 +132,7 @@ export default function EditarUsuario() {
             </option>
           </select>
         </div>
+
         <div className="btnsubmit">
           <button
             onClick={async (e: FormEvent) => {
@@ -134,6 +144,6 @@ export default function EditarUsuario() {
           </button>
         </div>
       </form>
-    </div>
+    </m.div>
   );
 }
