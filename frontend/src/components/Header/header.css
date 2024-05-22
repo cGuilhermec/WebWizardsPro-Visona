@@ -1,7 +1,8 @@
 @import '../../styles/color.css';
 
+
 body{
-    background-color: var(--cor-primaria-opaca);
+    background-color: #F8E1D6;
 }
 
 header{

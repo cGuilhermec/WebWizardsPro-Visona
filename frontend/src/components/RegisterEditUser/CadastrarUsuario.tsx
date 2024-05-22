@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import { useCadastroUser } from "../../context/useCadastroUser";
+import { motion } from "framer-motion";
 
 export default function CadastrarUsuario() {
   const [roleInput, setRoleInput] = useState("");
@@ -9,7 +10,12 @@ export default function CadastrarUsuario() {
   );
 
   return (
-    <form className="container-data-1">
+    <motion.form
+      initial={{ x: -1000 }}
+      animate={{ x: 0 }}
+      transition={{ duration: 0.5 }}
+      className="container-data-1"
+    >
       <div className="inputs">
         <label htmlFor="" className="labels">
           Nome:{" "}
@@ -57,6 +63,6 @@ export default function CadastrarUsuario() {
       >
         <button>Confirmar</button>
       </div>
-    </form>
+    </motion.form>
   );
 }
