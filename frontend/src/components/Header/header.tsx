@@ -17,7 +17,6 @@ export default function Header(){
             </div>
             <div className="final">
                 <HomeButton />
-                <NotificationButton />
                 <DarkMode />
                 <Perfil />
             </div>
