@@ -2,6 +2,7 @@ import express from "express";
 import { userController } from "../controller/UserController";
 import { loginUser } from "../controller/LoginController";
 import { authenticateToken } from "../middlewares/AuthMiddleware";
+import { graphpizza } from "../controller/GraphicController";
 
 export const router = express.Router();
 
@@ -15,3 +16,6 @@ router.post('/reativar-user/:id', authenticateToken, userController.reativarUser
 
 //Rotas publicas, não precisa de token.
 router.post('/login', loginUser);
+router.get('/graph-area', graphpizza.getgrapharea);
+router.get ('/graph-bar', graphpizza.getgraphbar);
+router.get ('/graph-correcao', graphpizza.getcorrecoes);

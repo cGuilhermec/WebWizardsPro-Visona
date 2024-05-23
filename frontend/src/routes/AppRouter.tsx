@@ -5,6 +5,7 @@ import RegisterEditUser from "../pages/RegisterEditUser";
 import { User } from "../pages/User";
 import LoginPage from "../pages/loginPage";
 import { PrivateRoute } from "./PrivateRoute";
+import RelatorioPage from "../pages/RelatorioPage";
 
 export const AppRouter = () => {
   return (
@@ -16,6 +17,9 @@ export const AppRouter = () => {
         </Route>
         <Route path="/registeredituser" element={<PrivateRoute />}>
           <Route path="/registeredituser" element={<RegisterEditUser />} />
+        </Route>
+        <Route path="/relatoriopage" element={<PrivateRoute />}>
+          <Route path="/relatoriopage" element={<RelatorioPage />} />
         </Route>
         <Route path="/user" element={<PrivateRoute />}>
           <Route path="/user" element={<User />} />

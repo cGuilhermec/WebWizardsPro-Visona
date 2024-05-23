@@ -4,7 +4,7 @@ import { AuthContext } from "../interfaces/IAuthContext";
 import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("guilherme@gmail.com");
+  const [email, setEmail] = useState("jf@visiona.com");
   const [password, setPassword] = useState("123");
   const { SignIn, Signed } = useContext(AuthContext);
   const navigate = useNavigate();
