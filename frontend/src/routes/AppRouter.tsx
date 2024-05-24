@@ -10,7 +10,9 @@ import RegisterEditUser from "../pages/RegisterEditUser";
 import { User } from "../pages/User";
 import LoginPage from "../pages/loginPage";
 import { PrivateRoute } from "./PrivateRoute";
+import RelatorioPage from "../pages/RelatorioPage";
 import { AnimatePresence } from "framer-motion";
+
 
 export const AppRouter = () => {
   const location = useLocation();
@@ -25,6 +27,10 @@ export const AppRouter = () => {
 
         <Route path="/registeredituser" element={<PrivateRoute />}>
           <Route path="/registeredituser" element={<RegisterEditUser />} />
+        </Route>
+        
+        <Route path="/relatoriopage" element={<PrivateRoute />}>
+          <Route path="/relatoriopage" element={<RelatorioPage />} />
         </Route>
 
         <Route path="/user" element={<PrivateRoute />}>
