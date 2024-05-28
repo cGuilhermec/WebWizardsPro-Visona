@@ -97,6 +97,16 @@ const reativarUserById = async (id: string) => {
 
 };
 
+const changePassword = async (new_password: string, id: string): Promise<void> => {
+
+    const client = await createConection();
+
+    await client.query(
+        'UPDATE users SET password = $1 WHERE id = $2', [new_password, id]
+    );
+
+}
+
 export const userModel = {
     createUser,
     getUserByEmail,
@@ -105,5 +115,6 @@ export const userModel = {
     getUserById,
     updateUserById,
     desativarUserById,
-    reativarUserById
+    reativarUserById,
+    changePassword
 };
