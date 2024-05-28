@@ -11,6 +11,7 @@ import { User } from "../pages/User";
 import LoginPage from "../pages/loginPage";
 import { PrivateRoute } from "./PrivateRoute";
 import { AnimatePresence } from "framer-motion";
+import MeuPerfil from "../pages/MeuPerfil";
 
 export const AppRouter = () => {
   const location = useLocation();
@@ -29,6 +30,10 @@ export const AppRouter = () => {
 
         <Route path="/user" element={<PrivateRoute />}>
           <Route path="/user" element={<User />} />
+        </Route>
+
+        <Route path="/meuperfil" element={<PrivateRoute />}>
+          <Route path="/meuperfil" element={<MeuPerfil />} />
         </Route>
       </Routes>
     </AnimatePresence>

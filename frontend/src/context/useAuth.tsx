@@ -39,14 +39,16 @@ export const AuthProvider: React.FC<AuthContextProps> = ({ children }) => {
 
       if (message.error) {
         alert(message);
+      } else if (response.status === 400) {
+        alert("Email ou senha invalidas, tente de novo!");
       } else {
-        alert(message);
         setUser(response.data.user);
 
         //Salva o token e os dados dos usuários no localStorage.
         localStorage.setItem("@Auth:name", name);
         localStorage.setItem("@Auth:role", role);
         localStorage.setItem("@Auth:userId", userId);
+        localStorage.setItem("@Auth:email", user);
         localStorage.setItem("@Auth:user", JSON.stringify(user));
         localStorage.setItem("@Auth:token", token);
       }

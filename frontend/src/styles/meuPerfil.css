@@ -37,9 +37,16 @@ body{
     height: 200px;
 }
 
+.foto-perfil{
+  max-width: 60%;
+  width: 200px; /* Define uma largura fixa */
+  height: 200px; /* Define uma altura fixa igual à largura */
+  border-radius: 300px;
+}
+
 .btnEditar{
-    margin-top: 220px;
-    height: 40px;
+    margin-top: 150px;
+    height: 100px;
     width: 80px;
 
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
@@ -80,4 +87,15 @@ body{
     background-color: rgb(223, 221, 218);
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
+}
+.custom-file-upload {
+    margin-top: 180px;
+    margin-left: 100px;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    margin-bottom: 20px;
 }

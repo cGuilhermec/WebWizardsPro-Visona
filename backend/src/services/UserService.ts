@@ -2,6 +2,7 @@ import { IUserInterface } from "../interfaces/IUserInterface";
 import { IUserUpdateInterface } from "../interfaces/IUserUpdateInterface";
 import { userModel } from "../model/UserModel";
 import { hash } from 'bcryptjs';
+import fs from 'fs';
 
 
 const createUser = async ( user: IUserInterface, id: string) => {
@@ -139,11 +140,21 @@ const reativarUserById = async (id: string, idUserReativado: string) => {
 
 }
 
+const changePassword = async ( new_password: string, id: string ) => {
+
+    const hash_new_password = await hash(new_password, 8);
+    new_password = hash_new_password;
+        
+    await userModel.changePassword(hash_new_password, id);
+
+};
+
 export const userService = {
     createUser,
     getAllUSers,
     getUserById,
     updateUserById,
     desativarUserById,
-    reativarUserById
+    reativarUserById,
+    changePassword
 }

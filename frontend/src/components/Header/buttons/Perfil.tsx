@@ -11,6 +11,7 @@ import configuration from "../../../images/header/configuration.png";
 // @ts-ignore
 import configuration_white from "../../../images/header/configuration_white.png";
 import { AuthContext } from "../../../interfaces/IAuthContext";
+import { Link } from "react-router-dom";
 
 export default function Perfil() {
   const dropDownRef = useRef(null);
@@ -20,7 +21,8 @@ export default function Perfil() {
   const name = localStorage.getItem("@Auth:name");
 
   const [nome, setNome] = useState(name);
-  const [perfilPhoto, setPerfilPhoto] = useState(defaultPhoto);
+  const foto = localStorage.getItem("selectedImage");
+  const [perfilPhoto, setPerfilPhoto] = useState(foto);
 
   return (
     <div>
@@ -30,7 +32,7 @@ export default function Perfil() {
           className={`perfil ${isActive ? "active" : "inactive"}`}
         >
           <div className="ft_perfil">
-            <img src={perfilPhoto} alt="" />
+            <img src={perfilPhoto as string} alt="" />
           </div>
           <div>{nome}</div>
         </button>
@@ -41,7 +43,7 @@ export default function Perfil() {
         >
           <a href="#">
             <button className="confbtn">
-              Meu Perfil
+              <Link to="/meuperfil">Meu Perfil</Link>
               <img src={configuration_white} alt="" className="btnconf_white" />
               <img src={configuration} alt="" className="btnconf" />
             </button>

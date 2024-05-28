@@ -12,6 +12,7 @@ router.get('/unique-user/:id', authenticateToken, userController.getUserById);
 router.post('/att-user/:id', authenticateToken, userController.updateUserById);
 router.post('/delete-user/:id', authenticateToken, userController.desativarUserById);
 router.post('/reativar-user/:id', authenticateToken, userController.reativarUserById);
+router.post('/attpass/:id', authenticateToken, userController.changePassword);
 
 //Rotas publicas, não precisa de token.
 router.post('/login', loginUser);
