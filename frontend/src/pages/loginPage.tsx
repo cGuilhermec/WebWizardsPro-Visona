@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export default function LoginPage() {
-
   const [email, setEmail] = useState("guilherme@visiona.com");
   const [password, setPassword] = useState("123");
   const { SignIn, Signed } = useContext(AuthContext);
@@ -17,7 +16,7 @@ export default function LoginPage() {
       if (storedRole === "adm") {
         navigate("/paneladm");
       } else {
-        navigate("/user");
+        navigate("/relatoriopage");
       }
     }
   }, [navigate, Signed]);

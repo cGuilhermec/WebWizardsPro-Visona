@@ -28,7 +28,7 @@ export default function Card1() {
           <p>Acesse o painel de projetos.</p>
         </div>
         <motion.button whileHover={{ scale: 1.1 }} className="btnadm">
-          <Link to="/user">Acessar</Link>
+          <Link to="/relatoriopage">Acessar</Link>
         </motion.button>
       </div>
 

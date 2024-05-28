@@ -19,6 +19,7 @@ export default function EditarUsuario() {
   const [nomeInput, setNomeInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
   const [roleInput, setRoleInput] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
 
   // Referência para o elemento do botão dropdown
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -27,7 +28,7 @@ export default function EditarUsuario() {
   const users = useAllUsers(userId || "");
 
   const id = selectedUser?.id;
-  const { nameRef, emailRef, roleRef, handleSubmit, updatedUser } =
+  const { nameRef, emailRef, roleRef, passwordRef, handleSubmit, updatedUser } =
     useUpdateUser(id || "");
 
   // Função para lidar com o clique fora do dropdown
@@ -55,6 +56,7 @@ export default function EditarUsuario() {
     setNomeInput(user.name);
     setEmailInput(user.email);
     setRoleInput(user.role);
+    setPasswordInput(user.password);
     setIsOpen(false); // Fecha o dropdown após selecionar um usuário
   };
 
@@ -131,6 +133,17 @@ export default function EditarUsuario() {
               Editor
             </option>
           </select>
+          <div className="inputs">
+            <label htmlFor="" className="labels">
+              Password: (Obrigatorio passar a senha){" "}
+            </label>
+            <input
+              type="password"
+              value={passwordInput}
+              ref={passwordRef}
+              onChange={(e) => setPasswordInput(e.target.value)}
+            />
+          </div>
         </div>
 
         <div className="btnsubmit">
