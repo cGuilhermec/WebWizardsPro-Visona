@@ -78,6 +78,9 @@ const updateUserById = async (user: IUserUpdateInterface) => {
         
         if(verifyUser) {
 
+            const hash_password = await hash(user.password, 8);
+            user.password = hash_password;
+
             await userModel.updateUserById(user);
 
             return {success: true, message: `Usuário ${user.email} atualizado com sucesso.`};

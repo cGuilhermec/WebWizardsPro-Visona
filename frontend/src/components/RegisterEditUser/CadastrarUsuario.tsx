@@ -5,9 +5,8 @@ import { motion } from "framer-motion";
 export default function CadastrarUsuario() {
   const [roleInput, setRoleInput] = useState("");
   const userId = localStorage.getItem("@Auth:userId");
-  const { nameRef, emailRef, roleRef, handleSubmit } = useCadastroUser(
-    userId || ""
-  );
+  const { nameRef, emailRef, roleRef, passwordRef, handleSubmit } =
+    useCadastroUser(userId || "");
 
   return (
     <motion.form
@@ -52,6 +51,13 @@ export default function CadastrarUsuario() {
             Editor
           </option>
         </select>
+      </div>
+
+      <div className="inputs">
+        <label htmlFor="" className="labels">
+          Password:{" "}
+        </label>
+        <input ref={passwordRef} type="password" />
       </div>
 
       <div

@@ -4,6 +4,7 @@ import { api } from "../api/api";
 export const useCadastroUser = (userId: string) => {
   const nameRef = useRef<HTMLInputElement | null>(null);
   const emailRef = useRef<HTMLInputElement | null>(null);
+  const passwordRef = useRef<HTMLInputElement | null>(null);
   const roleRef = useRef<HTMLSelectElement | null>(null);
 
   const handleSubmit = async () => {
@@ -26,7 +27,7 @@ export const useCadastroUser = (userId: string) => {
           {
             name: nameRef.current?.value,
             email: emailRef.current?.value,
-            password: "123",
+            password: passwordRef.current?.value,
             role: roleRef.current?.value,
           },
           {
@@ -51,5 +52,5 @@ export const useCadastroUser = (userId: string) => {
     }
   };
 
-  return { nameRef, emailRef, roleRef, handleSubmit };
+  return { nameRef, emailRef, roleRef, passwordRef, handleSubmit };
 };
