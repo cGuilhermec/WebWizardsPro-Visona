@@ -2,6 +2,7 @@ import { FormEvent, useContext, useEffect, useState } from "react";
 import "../styles/loginPage.css";
 import { AuthContext } from "../interfaces/IAuthContext";
 import { useNavigate } from "react-router-dom";
+import VideoComponent from "../components/LoginPage/VideoComponent";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("guilherme@gmail.com");
@@ -33,6 +34,7 @@ export default function LoginPage() {
   return (
     <div className="bloco">
       <div className="bloco1">
+        <VideoComponent />
         <div className="bloco2">
           <div className="bloco3">
             <img
