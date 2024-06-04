@@ -3,6 +3,7 @@ import "../../src/styles/meuPerfil.css";
 import { FormEvent, useState } from "react";
 import { useChangePassword } from "../context/useChangePassword";
 import { motion } from "framer-motion";
+import { useCity } from "../context/useCityContext";
 
 export default function MeuPerfil() {
   const nome = localStorage.getItem("@Auth:name");
