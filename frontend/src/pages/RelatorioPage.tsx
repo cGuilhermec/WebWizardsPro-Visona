@@ -1,11 +1,14 @@
 import "../styles/relatorioPage.css";
 import BarCorrecoes from "../components/relatorioPage/charts/bar_correcoes";
-import { PizzaPoligonos } from "../components/relatorioPage/charts/pizza_poligonos";
 import AreaTotalVSstatus from "../components/relatorioPage/charts/areaTotal_vs_status";
 import StatusAnalista from "../components/relatorioPage/charts/statusAnalista";
-import Buscas from "../components/relatorioPage/search";
+import { BuscasCity } from "../components/relatorioPage/searchCity";
 import { motion } from "framer-motion";
 import Header from "../components/Header/header";
+import { BuscasNames } from "../components/relatorioPage/searchNames";
+import EditorGraphData from "../components/relatorioPage/charts/EditorGraphData";
+import EditorGraphStatusAnalista from "../components/relatorioPage/charts/EditorGraphStatusAnalista";
+import EditorGraphCorrecoes from "../components/relatorioPage/charts/EditorStatusAnalista";
 
 export default function RelatorioPage() {
   return (
@@ -18,14 +21,19 @@ export default function RelatorioPage() {
         exit={{ opacity: 1, y: 1000 }}
         className="container-charts"
       >
-        <Buscas />
+        <BuscasCity />
+        <BuscasNames />
         <div className="row-charts">
+          <h1>Todos os dados:</h1>
           <AreaTotalVSstatus />
           <StatusAnalista />
           <BarCorrecoes />
         </div>
         <div className="row-charts">
-          <PizzaPoligonos />
+          <h1>Por Usuarios:</h1>
+          <EditorGraphData />
+          <EditorGraphStatusAnalista />
+          <EditorGraphCorrecoes />
         </div>
       </motion.div>
     </div>

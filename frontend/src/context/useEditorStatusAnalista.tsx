@@ -2,18 +2,21 @@ import { useEffect, useState } from "react";
 import { api } from "../api/api";
 import { DataItem2 } from "../interfaces/graphInterface";
 import { useCity } from "./useCityContext";
+import { useNameForGraph } from "./useNameForGraphContext";
 
-const useGraphStatusAnalista = () => {
+const useEditorGraphStatusAnalista = () => {
   const [dados, setDados] = useState<
     Array<[string, string | number, string | number]>
   >([]);
   const [error, setError] = useState<Error | null>(null);
   const { selectedCity } = useCity();
+  const { selectedNameForGraph } = useNameForGraph();
 
   useEffect(() => {
     const getData = async () => {
       try {
         let gradeAtuacao: string | undefined;
+        let name: string | undefined = selectedNameForGraph;
 
         if (selectedCity === "Atibaia") {
           gradeAtuacao = "tbgrade_atuacao_atibaia";
@@ -23,9 +26,10 @@ const useGraphStatusAnalista = () => {
           gradeAtuacao = "tbgrade_atuacao_taubate";
         }
 
-        const response = await api.get("/graph-bar", {
+        const response = await api.get("/graph-bar-editor", {
           params: {
             cidade: gradeAtuacao,
+            name: name,
           },
         });
         const data: DataItem2[] = response.data;
@@ -45,9 +49,9 @@ const useGraphStatusAnalista = () => {
     };
 
     getData();
-  }, [selectedCity]);
+  }, [selectedNameForGraph, selectedCity]);
 
   return { dados, error };
 };
 
-export default useGraphStatusAnalista;
+export default useEditorGraphStatusAnalista;

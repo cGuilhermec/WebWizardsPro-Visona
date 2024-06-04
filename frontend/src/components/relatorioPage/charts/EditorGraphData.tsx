@@ -1,8 +1,8 @@
 import { Chart } from "react-google-charts";
-import useGraphData from "../../../context/useGraphData";
+import useEditorGraphData from "../../../context/useEditorGraphData";
 
-const AreaTotalVSstatus = () => {
-  const { dados, error } = useGraphData();
+const EditorGraphData = () => {
+  const { dados, error } = useEditorGraphData();
 
   if (error) {
     return <div>Error: {error.message}</div>;
@@ -33,4 +33,4 @@ const AreaTotalVSstatus = () => {
   );
 };
 
-export default AreaTotalVSstatus;
+export default EditorGraphData;

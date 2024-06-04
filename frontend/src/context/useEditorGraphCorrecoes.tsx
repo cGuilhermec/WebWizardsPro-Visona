@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react";
 import { api } from "../api/api";
-import { ChartItem, DataItem } from "../interfaces/graphInterface";
+import { DataItem } from "../interfaces/graphInterface";
 import { useCity } from "./useCityContext";
+import { useNameForGraph } from "./useNameForGraphContext";
 
-const useGraphCorrecoes = () => {
+const useEditorGraphCorrecoes = () => {
   const [dados, setDados] = useState<Array<[string, string | number]>>([]);
   const [error, setError] = useState<Error | null>(null);
   const { selectedCity } = useCity();
-  const token = localStorage.getItem("@Auth:token");
+  const { selectedNameForGraph } = useNameForGraph();
 
   useEffect(() => {
     const getData = async () => {
       try {
         let gradeAtuacao: string | undefined;
         let gradeApontamneto: string | undefined;
+        let name: string | undefined = selectedNameForGraph;
 
         if (selectedCity === "Atibaia") {
           gradeAtuacao = "tbgrade_atuacao_atibaia";
@@ -30,17 +32,19 @@ const useGraphCorrecoes = () => {
           params: {
             cidade_Apontamento: gradeApontamneto,
             cidade_Atuacao: gradeAtuacao,
+            name: name,
           },
         });
 
         const data: DataItem[] = response.data;
-        console.log(response.data);
+
         const chartData: Array<[string, number]> = data.map((item: any) => {
           return [
             item.correcao || "Desconhecido",
             parseInt(item.total_correcoes, 10),
           ];
         });
+
         setDados([["Correção", "Total Correções"], ...chartData]);
       } catch (error) {
         setError(error as Error);
@@ -48,9 +52,9 @@ const useGraphCorrecoes = () => {
     };
 
     getData();
-  }, [selectedCity]);
+  }, [selectedCity, selectedNameForGraph]);
 
   return { dados, error };
 };
 
-export default useGraphCorrecoes;
+export default useEditorGraphCorrecoes;

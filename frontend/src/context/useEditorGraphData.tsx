@@ -1,56 +1,52 @@
 import { useEffect, useState } from "react";
 import { api } from "../api/api";
-import { ChartItem, DataItem } from "../interfaces/graphInterface";
+import { DataItem } from "../interfaces/graphInterface";
 import { useCity } from "./useCityContext";
+import { useNameForGraph } from "./useNameForGraphContext";
 
-const useGraphCorrecoes = () => {
+const useEditorGraphData = () => {
   const [dados, setDados] = useState<Array<[string, string | number]>>([]);
   const [error, setError] = useState<Error | null>(null);
   const { selectedCity } = useCity();
-  const token = localStorage.getItem("@Auth:token");
+  const { selectedNameForGraph } = useNameForGraph();
+
+  console.log(selectedNameForGraph);
+  console.log(selectedCity);
 
   useEffect(() => {
     const getData = async () => {
       try {
         let gradeAtuacao: string | undefined;
-        let gradeApontamneto: string | undefined;
+        let name: string | undefined = selectedNameForGraph;
 
         if (selectedCity === "Atibaia") {
           gradeAtuacao = "tbgrade_atuacao_atibaia";
-          gradeApontamneto = "tbapontamento_alteracao_atibaia";
         } else if (selectedCity === "Cruzeiro") {
           gradeAtuacao = "tbgrade_atuacao_cruzeiro";
-          gradeApontamneto = "tbapontamento_alteracao_cruzeiro";
         } else if (selectedCity === "Taubaté") {
           gradeAtuacao = "tbgrade_atuacao_taubate";
-          gradeApontamneto = "tbapontamento_alteracao_taubate";
         }
 
-        const response = await api.get(`/graph-correcao`, {
+        const response = await api.get("/graph-area-editor", {
           params: {
-            cidade_Apontamento: gradeApontamneto,
             cidade_Atuacao: gradeAtuacao,
+            name: name,
           },
         });
-
         const data: DataItem[] = response.data;
-        console.log(response.data);
-        const chartData: Array<[string, number]> = data.map((item: any) => {
-          return [
-            item.correcao || "Desconhecido",
-            parseInt(item.total_correcoes, 10),
-          ];
-        });
-        setDados([["Correção", "Total Correções"], ...chartData]);
+        const chartData: Array<[string, number]> = data.map((item: any) => [
+          item.status || "Desconhecido",
+          parseFloat(item.total_km2),
+        ]);
+        setDados([["Status", "total_km2"], ...chartData]);
       } catch (error) {
         setError(error as Error);
       }
     };
-
     getData();
-  }, [selectedCity]);
+  }, [selectedNameForGraph, selectedCity]);
 
   return { dados, error };
 };
 
-export default useGraphCorrecoes;
+export default useEditorGraphData;

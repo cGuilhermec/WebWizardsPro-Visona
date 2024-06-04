@@ -1,9 +1,9 @@
 import React from "react";
 import { Chart } from "react-google-charts";
-import useGraphCorrecoes from "../../../context/useGraphCorrecoes";
+import useEditorGraphCorrecoes from "../../../context/useEditorGraphCorrecoes";
 
-const BarCorrecoes = () => {
-  const { dados, error } = useGraphCorrecoes();
+const EditorGraphCorrecoes = () => {
+  const { dados, error } = useEditorGraphCorrecoes();
 
   if (error) {
     return <div>Error: {error.message}</div>;
@@ -48,4 +48,4 @@ const BarCorrecoes = () => {
   );
 };
 
-export default BarCorrecoes;
+export default EditorGraphCorrecoes;

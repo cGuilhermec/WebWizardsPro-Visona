@@ -1,9 +1,8 @@
 import { Chart } from "react-google-charts";
-import useGraphData from "../../../context/useGraphData";
+import useEditorGraphStatusAnalista from "../../../context/useEditorStatusAnalista";
 
-const AreaTotalVSstatus = () => {
-  const { dados, error } = useGraphData();
-
+const EditorGraphStatusAnalista = () => {
+  const { dados, error } = useEditorGraphStatusAnalista();
   if (error) {
     return <div>Error: {error.message}</div>;
   }
@@ -11,26 +10,23 @@ const AreaTotalVSstatus = () => {
   if (!dados || dados.length === 0) {
     return <div>Carregando...</div>;
   }
-
   const options = {
     backgroundColor: "transparent",
-    title: "Area total * Area Status",
-    is3D: true,
+    title: "Status por analista",
     legend: { position: "bottom", textStyle: { fontSize: 11 } },
     fontSize: 13,
   };
-
   return (
     <div className="testechart">
       <Chart
-        chartType="PieChart"
-        data={dados}
-        options={options}
+        chartType="BarChart"
         width={"100%"}
         height={"100%"}
+        data={dados}
+        options={options}
       />
     </div>
   );
 };
 
-export default AreaTotalVSstatus;
+export default EditorGraphStatusAnalista;

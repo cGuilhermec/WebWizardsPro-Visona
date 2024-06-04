@@ -2,7 +2,7 @@ import express from "express";
 import { userController } from "../controller/UserController";
 import { loginUser } from "../controller/LoginController";
 import { authenticateToken } from "../middlewares/AuthMiddleware";
-import { graphpizza } from "../controller/GraphicController";
+import { graphController } from "../controller/GraphicController";
 
 export const router = express.Router();
 
@@ -17,6 +17,13 @@ router.post('/attpass/:id', authenticateToken, userController.changePassword);
 
 //Rotas publicas, não precisa de token.
 router.post('/login', loginUser);
-router.get('/graph-area', graphpizza.getgrapharea);
-router.get ('/graph-bar', graphpizza.getgraphbar);
-router.get ('/graph-correcao', graphpizza.getcorrecoes);
+
+//Rotas dos graficos de adm
+router.get('/graph-area', graphController.getgrapharea);
+router.get('/graph-bar', graphController.getgraphbar);
+router.get('/graph-correcao', graphController.getcorrecoes);
+
+//Rotas dos graficos de editor
+router.get('/graph-area-editor', graphController.editor_Graph_Area_Vs_Status);
+router.get('/graph-bar-editor', graphController.editor_Graph_Bar_Status_Vs_Analista);
+router.get('/graph-correcao-editor', graphController.editor_Correcoes);
