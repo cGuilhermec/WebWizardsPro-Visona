@@ -27,9 +27,9 @@ export default function Card1() {
           <h2>Painel de Projetos</h2>
           <p>Acesse o painel de projetos.</p>
         </div>
-        <motion.button whileHover={{ scale: 1.1 }} className="btnadm">
+        <button className="btnadm">
           <Link to="/relatoriopage">Acessar</Link>
-        </motion.button>
+        </button>
       </div>
 
       <div className="cardimg1">

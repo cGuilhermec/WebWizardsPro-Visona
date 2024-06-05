@@ -27,10 +27,10 @@ export default function Card2() {
           <h2>Painel de usuários</h2>
           <p>Acesse a criação e edição de usuários.</p>
         </div>
-        <motion.button whileHover={{ scale: 1.1 }} className="btnadm">
+        <button className="btnadm">
           {" "}
           <Link to="/registeredituser">Acessar </Link>
-        </motion.button>
+        </button>
       </div>
 
       <div className="cardimg2">
