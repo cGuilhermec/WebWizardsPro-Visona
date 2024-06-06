@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, FormEvent } from "react";
+import { useState, useRef, FormEvent, useEffect } from "react";
 // @ts-ignore
 import dropdown from "../../images/registerEditUser/dropdown.png";
 // @ts-ignore
@@ -6,16 +6,21 @@ import dropdown_white from "../../images/registerEditUser/dropdown_white.png";
 import { useAllUsers } from "../../context/getAllUsers";
 import { User } from "../../interfaces/IUser";
 import useUpdateUser from "../../context/useUpdateUser";
+import { motion as m } from "framer-motion";
 
 export default function EditarUsuario() {
   // Estado para controlar se o dropdown está aberto ou fechado
   const [isOpen, setIsOpen] = useState(false);
+
   // Estado para o usuário selecionado
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
+
   // Estados para os campos de alteração
   const [nomeInput, setNomeInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
   const [roleInput, setRoleInput] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
+
   // Referência para o elemento do botão dropdown
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -23,7 +28,7 @@ export default function EditarUsuario() {
   const users = useAllUsers(userId || "");
 
   const id = selectedUser?.id;
-  const { nameRef, emailRef, roleRef, handleSubmit, updatedUser } =
+  const { nameRef, emailRef, roleRef, passwordRef, handleSubmit, updatedUser } =
     useUpdateUser(id || "");
 
   // Função para lidar com o clique fora do dropdown
@@ -51,11 +56,18 @@ export default function EditarUsuario() {
     setNomeInput(user.name);
     setEmailInput(user.email);
     setRoleInput(user.role);
+    setPasswordInput(user.password);
     setIsOpen(false); // Fecha o dropdown após selecionar um usuário
   };
 
   return (
-    <div ref={dropdownRef} className="container-data-2 ">
+    <m.div
+      initial={{ x: 1000 }}
+      animate={{ x: 0 }}
+      transition={{ duration: 0.5 }}
+      ref={dropdownRef}
+      className="container-data-2 "
+    >
       <div className="container-dropdown-user">
         <div className="dropdown-edit-user">
           <button onClick={() => setIsOpen(!isOpen)} className="btn-dropdown1">
@@ -91,7 +103,6 @@ export default function EditarUsuario() {
             onChange={(e) => setNomeInput(e.target.value)}
           />
         </div>
-
         <div className="inputs">
           <label htmlFor="" className="labels">
             E-mail:{" "}
@@ -122,7 +133,19 @@ export default function EditarUsuario() {
               Editor
             </option>
           </select>
+          <div className="inputs">
+            <label htmlFor="" className="labels">
+              Password: (Obrigatorio passar a senha){" "}
+            </label>
+            <input
+              type="password"
+              value={passwordInput}
+              ref={passwordRef}
+              onChange={(e) => setPasswordInput(e.target.value)}
+            />
+          </div>
         </div>
+
         <div className="btnsubmit">
           <button
             onClick={async (e: FormEvent) => {
@@ -134,6 +157,6 @@ export default function EditarUsuario() {
           </button>
         </div>
       </form>
-    </div>
+    </m.div>
   );
 }

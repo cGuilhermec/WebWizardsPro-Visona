@@ -14,14 +14,7 @@
   z-index: 10;
 }
 
-.card1:hover, .card2:hover{
-  
-  width: 585px;
-  height: 335px;
 
-  transition: 0.5s;
-  box-shadow: 0 1.5px 8px rgba(0, 0, 0, 0.3);
-}
 /*-----*/
 
 
@@ -30,20 +23,10 @@
   background-color: #cccccc;
   margin-right: 100px;
 }
-.card1:hover{
-  margin-right: 90px;
-  margin-left: -15px;
-  z-index: 100;
-}
 
 .card2{
   background-color: #ffb573;
   margin-left: 100px;
-}
-.card2:hover{
-  margin-left: 90px;
-  margin-right: -15px;
-  z-index: 100;
 }
 
 .cardtxt1, .cardtxt2 {

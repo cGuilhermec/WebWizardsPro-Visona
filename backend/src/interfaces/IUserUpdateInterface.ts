@@ -3,4 +3,5 @@ export interface IUserUpdateInterface {
     name: string;
     email: string;
     role: string;
+    password: string;
 }

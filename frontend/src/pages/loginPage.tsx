@@ -3,9 +3,11 @@ import "../styles/loginPage.css";
 import { AuthContext } from "../interfaces/IAuthContext";
 import { useNavigate } from "react-router-dom";
 import VideoComponent from "../components/LoginPage/VideoComponent";
+import { motion } from "framer-motion";
+
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("guilherme@gmail.com");
+  const [email, setEmail] = useState("guilherme@visiona.com");
   const [password, setPassword] = useState("123");
   const { SignIn, Signed } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -16,7 +18,7 @@ export default function LoginPage() {
       if (storedRole === "adm") {
         navigate("/paneladm");
       } else {
-        navigate("/user");
+        navigate("/relatoriopage");
       }
     }
   }, [navigate, Signed]);
@@ -35,7 +37,16 @@ export default function LoginPage() {
     <div className="bloco">
       <div className="bloco1">
         <VideoComponent />
-        <div className="bloco2">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 1,
+            delay: 0.5,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+          className="bloco2"
+        >
           <div className="bloco3">
             <img
               decoding="async"
@@ -65,13 +76,17 @@ export default function LoginPage() {
                   />
                   <span className="focus-input" data-placeholder="Senha"></span>
                 </div>
-                <button type="submit" className="loginbtn">
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  type="submit"
+                  className="loginbtn"
+                >
                   Login
-                </button>
+                </motion.button>
               </form>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

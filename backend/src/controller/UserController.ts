@@ -1,6 +1,5 @@
 import {Request, Response} from 'express';
 import { userService } from '../services/UserService';
-
 const createUser = async ( req: Request, res: Response ) => {
     const { id } = req.params;
     const { name, email, password, role } = req.body;
@@ -55,12 +54,12 @@ const getUserById = async (req: Request, res: Response) => {
 };
 
 const updateUserById = async (req: Request, res: Response) => {
-    const {name, email, role} = req.body;
+    const {name, email, role, password} = req.body;
     const {id} = req.params;
 
     try {
         
-        const userUpdate = await userService.updateUserById({name, email, role, id});
+        const userUpdate = await userService.updateUserById({name, email, role, password, id});
         return res.status(200).json({message: userUpdate});
 
     } catch (error) {
@@ -101,11 +100,28 @@ const reativarUserById = async (req: Request, res: Response) => {
 
 };
 
+const changePassword = async (req: Request, res: Response) => {
+
+    const {id} = req.params;
+    const { new_password } = req.body;
+
+    try {
+        
+        await userService.changePassword(new_password, id);
+
+        return res.status(200).json('Senha atualizada com sucesso!')
+
+    } catch (error) {
+        throw new Error(`Erro ao tentar atualizar a senha: ${error}. Procure um administrador!`);
+    };
+
+};
 export const userController = {
     createUser,
     getAllUsers,
     getUserById,
     updateUserById,
     desativarUserById,
-    reativarUserById
+    reativarUserById,
+    changePassword,
 };
