@@ -14,7 +14,7 @@ body {
   width: 100vw;
   height: 100vh;
   margin: 0px;
-  background-color: #e4bca7;
+  /* background-color: #e2a685; */
   overflow: hidden;
 }
 
@@ -31,21 +31,20 @@ body {
 
 .img-boxmap {
   position: absolute;
-  width: 361px;
-  height: 259px;
-  top: 93px;
-  left: 1180.33px;
+  width: 490px;
+  height: 370px;
+  top: 70px;
+  left: 1380.33px;
   rotate: -171.82º;
-  opacity: 60%;
+  opacity: 90%;
 }
 
 .img-boxsat {
   position: absolute;
-  width: 361px;
-  height: 259px;
-  bottom: 0;
+  width: 900px;
+  height: 500px;
+  bottom: -100px;
   /* Posicionando a imagem no fundo da tela */
-  left: 0;
+  left: -100px;
   /* Posicionando a imagem no canto esquerdo */
-  transform: rotate(-171.82deg);
 }

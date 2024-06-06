@@ -59,17 +59,21 @@ export default function MeuPerfil() {
             <span className="dados2">{role}</span>
           </div>
 
-          <div className="dados1">
+          <p>Para alterar qualquer informação acima procure pelo administrador.</p>
+
+          <div className="dados1 btnConf">
             <label htmlFor="">Senha:</label>
             <input ref={passwordRef} className="dados2"></input>
-            <button
-              onClick={async (e: FormEvent) => {
-                e.preventDefault();
-                await handleSumit();
-              }}
-            >
-              Confrimar
-            </button>
+            <div className="btnConfirmar">
+              <button
+                onClick={async (e: FormEvent) => {
+                  e.preventDefault();
+                  await handleSumit();
+                }}
+              >
+                Confirmar
+              </button>
+            </div>
           </div>
         </div>
       </motion.div>

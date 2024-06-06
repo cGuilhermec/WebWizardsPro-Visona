@@ -2,7 +2,9 @@ import { FormEvent, useContext, useEffect, useState } from "react";
 import "../styles/loginPage.css";
 import { AuthContext } from "../interfaces/IAuthContext";
 import { useNavigate } from "react-router-dom";
+import VideoComponent from "../components/LoginPage/VideoComponent";
 import { motion } from "framer-motion";
+
 
 export default function LoginPage() {
   const [email, setEmail] = useState("guilherme@visiona.com");
@@ -34,6 +36,7 @@ export default function LoginPage() {
   return (
     <div className="bloco">
       <div className="bloco1">
+        <VideoComponent />
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}

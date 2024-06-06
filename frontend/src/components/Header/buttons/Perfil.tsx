@@ -31,9 +31,9 @@ export default function Perfil() {
           onClick={onClick}
           className={`perfil ${isActive ? "active" : "inactive"}`}
         >
-          <div className="ft_perfil">
+          {/* <div className="ft_perfil">
             <img src={perfilPhoto as string} alt="" />
-          </div>
+          </div> */}
           <div>{nome}</div>
         </button>
 
@@ -43,7 +43,7 @@ export default function Perfil() {
         >
           <a href="#">
             <button className="confbtn">
-              <Link to="/meuperfil">Meu Perfil</Link>
+              <p><Link to="/meuperfil">Meu Perfil</Link></p>
               <img src={configuration_white} alt="" className="btnconf_white" />
               <img src={configuration} alt="" className="btnconf" />
             </button>

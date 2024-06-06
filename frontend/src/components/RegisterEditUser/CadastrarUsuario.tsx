@@ -57,7 +57,7 @@ export default function CadastrarUsuario() {
         <label htmlFor="" className="labels">
           Password:{" "}
         </label>
-        <input ref={passwordRef} type="password" />
+        <input ref={passwordRef} type="password" placeholder="Insira a senha"/>
       </div>
 
       <div

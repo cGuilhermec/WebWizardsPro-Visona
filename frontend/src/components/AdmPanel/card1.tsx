@@ -47,6 +47,7 @@ export default function Card1() {
         >
           Acessar
         </motion.button>
+
       </div>
 
       <div className="cardimg1">
