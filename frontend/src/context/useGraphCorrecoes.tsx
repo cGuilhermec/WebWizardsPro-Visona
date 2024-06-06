@@ -34,13 +34,14 @@ const useGraphCorrecoes = () => {
         });
 
         const data: DataItem[] = response.data;
-        console.log(response.data);
+
         const chartData: Array<[string, number]> = data.map((item: any) => {
           return [
             item.correcao || "Desconhecido",
             parseInt(item.total_correcoes, 10),
           ];
         });
+
         setDados([["Correção", "Total Correções"], ...chartData]);
       } catch (error) {
         setError(error as Error);

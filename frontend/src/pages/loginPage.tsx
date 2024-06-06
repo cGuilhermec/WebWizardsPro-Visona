@@ -16,7 +16,7 @@ export default function LoginPage() {
       if (storedRole === "adm") {
         navigate("/paneladm");
       } else {
-        navigate("/relatoriopage");
+        navigate("/relatorio-page");
       }
     }
   }, [navigate, Signed]);

@@ -1,10 +1,23 @@
 //@ts-ignore
 import img_card1 from "../../images/AdmPanel/card1.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./cards.css";
 import { motion } from "framer-motion";
 
 export default function Card1() {
+  const role = localStorage.getItem("@Auth:role");
+  const navigate = useNavigate();
+
+  const handleChange = () => {
+    if (role) {
+      if (role === "adm") {
+        navigate("/relatoriopage");
+      } else if (role === "editor") {
+        navigate("/relatorio-page");
+      }
+    }
+  };
+
   return (
     <motion.div
       className="card1"
@@ -27,8 +40,12 @@ export default function Card1() {
           <h2>Painel de Projetos</h2>
           <p>Acesse o painel de projetos.</p>
         </div>
-        <motion.button whileHover={{ scale: 1.1 }} className="btnadm">
-          <Link to="/relatoriopage">Acessar</Link>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          className="btnadm"
+          onClick={handleChange}
+        >
+          Acessar
         </motion.button>
       </div>
 

@@ -24,7 +24,7 @@ export const NameForGraphProvider: React.FC<CityProviderProps> = ({
   children,
 }) => {
   const [selectedNameForGraph, setSelectedNameForGraph] = useState<string>("");
-
+  console.log(selectedNameForGraph);
   return (
     <NameForGraphContext.Provider
       value={{ selectedNameForGraph, setSelectedNameForGraph }}

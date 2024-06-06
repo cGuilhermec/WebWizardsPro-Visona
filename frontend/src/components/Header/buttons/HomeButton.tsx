@@ -12,9 +12,9 @@ export default function HomeButton() {
     if (verifyRole === "adm") {
       navigate("/paneladm");
     } else if (verifyRole === "editor" || "revisor") {
-      navigate("/relatoriopage");
+      navigate("/relatorio-page");
     } else {
-      navigate("/relatoriopage"); // Página padrão caso a role não seja 'admin' ou 'user'
+      navigate("/relatorio-page"); // Página padrão caso a role não seja 'admin' ou 'user'
     }
   };
 
