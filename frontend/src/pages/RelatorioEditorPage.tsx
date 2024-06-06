@@ -10,7 +10,7 @@ import EditorGraphData from "../components/relatorioPage/charts/EditorGraphData"
 import EditorGraphStatusAnalista from "../components/relatorioPage/charts/EditorGraphStatusAnalista";
 import EditorGraphCorrecoes from "../components/relatorioPage/charts/EditorStatusAnalista";
 
-export default function RelatorioPage() {
+export default function RelatorioEditorPage() {
   return (
     <div>
       <Header />
@@ -22,15 +22,7 @@ export default function RelatorioPage() {
         className="container-charts"
       >
         <BuscasCity />
-        <BuscasNames />
         <div className="row-charts">
-          <h1>Todos os dados:</h1>
-          <AreaTotalVSstatus />
-          <StatusAnalista />
-          <BarCorrecoes />
-        </div>
-        <div className="row-charts">
-          <h1>Por Usuarios:</h1>
           <EditorGraphData />
           <EditorGraphStatusAnalista />
           <EditorGraphCorrecoes />

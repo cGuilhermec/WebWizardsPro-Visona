@@ -10,10 +10,10 @@ import RegisterEditUser from "../pages/RegisterEditUser";
 import { User } from "../pages/User";
 import LoginPage from "../pages/loginPage";
 import { PrivateRoute } from "./PrivateRoute";
-import RelatorioPage from "../pages/RelatorioPage";
 import { AnimatePresence } from "framer-motion";
 import MeuPerfil from "../pages/MeuPerfil";
-
+import RelatorioADMPage from "../pages/RelatorioADMPage";
+import RelatorioEditorPage from "../pages/RelatorioEditorPage";
 
 export const AppRouter = () => {
   const location = useLocation();
@@ -29,9 +29,13 @@ export const AppRouter = () => {
         <Route path="/registeredituser" element={<PrivateRoute />}>
           <Route path="/registeredituser" element={<RegisterEditUser />} />
         </Route>
-        
+
         <Route path="/relatoriopage" element={<PrivateRoute />}>
-          <Route path="/relatoriopage" element={<RelatorioPage />} />
+          <Route path="/relatoriopage" element={<RelatorioADMPage />} />
+        </Route>
+
+        <Route path="/relatorio-page" element={<PrivateRoute />}>
+          <Route path="/relatorio-page" element={<RelatorioEditorPage />} />
         </Route>
 
         <Route path="/user" element={<PrivateRoute />}>
