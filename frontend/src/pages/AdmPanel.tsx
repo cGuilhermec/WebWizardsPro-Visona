@@ -2,7 +2,7 @@ import "../styles/admPanel.css";
 //@ts-ignore
 import map from "../images/AdmPanel/map.png";
 //@ts-ignore
-import satellite from "../images/AdmPanel/satellite.png";
+import satellite from "../images/registerEditUser/objects.png";
 //@ts-ignore
 import img_card1 from "../images/AdmPanel/card1.png";
 //@ts-ignore

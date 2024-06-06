@@ -12,12 +12,15 @@ body{
     display: flex;
     flex-direction: row;
 
+    justify-content: center;
+    align-items: center;
+
     border-radius: 13px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4),
                 -3px -3px 5px rgba(0, 0, 0, 0.2);
 
-    height: 390px;
-    width: 800px;
+    height: 410px;
+    width: 550px;
     background-color: #FFFFFF;
 }
 
@@ -59,9 +62,11 @@ body{
     flex-direction: column;
 
     justify-content: center;
-    
-    padding: 30px;
-    
+}
+
+.container-dados p{
+    font-size: 14px;
+    color: rgb(255, 74, 74);
 }
 
 .dados1{
@@ -75,9 +80,57 @@ body{
     font-size: 20px;
 }
 
+.dados1 input{
+    border: none;
+    background-color: white;
+    border: 1.5px solid rgba(134, 134, 134, 0.8);
+}
+
+.dados1 input:focus{
+    outline: none;
+    border: 1.5px solid #D25713
+}
+
+.btnConfirmar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dados1 button{
+    height: 30px;
+    width: 200px;
+    
+    margin-top: 20px;
+    border-radius: 5px;
+
+    background-color: transparent;
+    border: 1px solid #D25713;
+
+    color:#D25713;
+
+    font-size: 15px;
+}
+
+.btnConf{
+    margin-top: -10px;
+}
+
+.dados1 button:hover{
+    cursor: pointer;
+
+    transition: 0.3s;
+    box-shadow: 3px 3px 5px rgba(210,87,19, 0.4);
+
+    color: white;
+    background-color: rgba(210,87,19, 0.8);
+    border: none;
+}
+
 .dados2{
     height: 35px;
-    width: 100%;
+    width: 95%;
 
     display: flex;
     align-items: center;
@@ -88,7 +141,11 @@ body{
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
 }
-.custom-file-upload {
+
+
+
+
+/* .custom-file-upload {
     margin-top: 180px;
     margin-left: 100px;
     display: inline-block;
@@ -98,4 +155,4 @@ body{
     border-radius: 4px;
     background-color: #f0f0f0;
     margin-bottom: 20px;
-}
+} */

@@ -133,7 +133,7 @@ export default function EditarUsuario() {
               Editor
             </option>
           </select>
-          <div className="inputs">
+          <div className="inputs editar-senha">
             <label htmlFor="" className="labels">
               Password: (Obrigatorio passar a senha){" "}
             </label>
@@ -142,6 +142,7 @@ export default function EditarUsuario() {
               value={passwordInput}
               ref={passwordRef}
               onChange={(e) => setPasswordInput(e.target.value)}
+              placeholder="Insira a senha"
             />
           </div>
         </div>

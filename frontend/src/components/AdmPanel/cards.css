@@ -74,15 +74,18 @@
   border: none;
 }
 
+.btnadm a{
+  text-decoration: none;
+  color: #D25713;
+}
+
 .btnadm:hover{
   cursor: pointer;
   box-shadow: 0 1.5px 8px rgba(0, 0, 0, 0.3);
 
   margin-top: -2px;
-  width: 167px;
-  height: 49px;
 
-  transition: 0.4s;
+  transition: 0.2s;
 }
 
 .cardimg1, .cardimg2{
