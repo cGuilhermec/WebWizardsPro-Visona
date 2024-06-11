@@ -65,6 +65,7 @@ body{
 }
 
 .container-dados p{
+    margin-top: 10px;
     font-size: 14px;
     color: rgb(255, 74, 74);
 }
@@ -114,7 +115,7 @@ body{
 }
 
 .btnConf{
-    margin-top: -10px;
+    margin-top: 3px;
 }
 
 .dados1 button:hover{

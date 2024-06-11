@@ -9,6 +9,7 @@ import { BuscasNames } from "../components/relatorioPage/searchNames";
 import EditorGraphData from "../components/relatorioPage/charts/EditorGraphData";
 import EditorGraphStatusAnalista from "../components/relatorioPage/charts/EditorGraphStatusAnalista";
 import EditorGraphCorrecoes from "../components/relatorioPage/charts/EditorStatusAnalista";
+import BtnExtrair from "../components/relatorioPage/BtnExtrair";
 
 export default function RelatorioEditorPage() {
   return (
@@ -19,14 +20,33 @@ export default function RelatorioEditorPage() {
         animate={{ y: "0" }}
         transition={{ duration: 0.75, ease: "easeOut" }}
         exit={{ opacity: 1, y: 1000 }}
-        className="container-charts"
+        className="container-datas-graficos"
       >
-        <BuscasCity />
-        <div className="row-charts">
-          <EditorGraphData />
-          <EditorGraphStatusAnalista />
-          <EditorGraphCorrecoes />
+        <div className="container-data-1-graficos">
+
+          <div className="row-1">
+            <BuscasCity />
+          </div>
+
+          <div className="row-charts" id="row-charts">
+
+            <div className="teste">
+              <EditorGraphData />
+            </div>
+
+            <div className="teste">
+              <EditorGraphStatusAnalista />
+            </div>
+
+            <div className="teste">
+              <EditorGraphCorrecoes />
+            </div>
+
+          </div>
+
+          <BtnExtrair />
         </div>
+
       </motion.div>
     </div>
   );

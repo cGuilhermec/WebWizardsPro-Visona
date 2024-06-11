@@ -12,7 +12,7 @@ export default function MeuPerfil() {
 
   const [name] = useState(nome);
   const [email] = useState(user);
-  const [role] = useState(rolee);
+  const [role] = useState(rolee?.toLowerCase());
   const [image, setImage] = useState<string | ArrayBuffer | null>(null);
   const userId = localStorage.getItem("@Auth:userId");
   const { handleSumit, passwordRef } = useChangePassword(userId || "");
@@ -27,22 +27,6 @@ export default function MeuPerfil() {
         transition={{ duration: 0.75, ease: "easeOut" }}
         exit={{ opacity: 1, y: 1000 }}
       >
-        {/* <div className="container-foto">
-          {image && (
-            <img src={image as string} alt="Selected" className="foto-perfil" />
-          )}
-          <div>
-            <label htmlFor="file-upload" className="custom-file-upload">
-              Editar
-            </label>
-            <input
-              id="file-upload"
-              type="file"
-              accept="image/*"
-              style={{ display: "none" }}
-            />
-          </div>
-        </div> */}
         <div className="container-dados">
           <div className="dados1">
             <label htmlFor="">Nome:</label>

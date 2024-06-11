@@ -40,13 +40,12 @@ export default function Card1() {
           <h2>Painel de Projetos</h2>
           <p>Acesse o painel de projetos.</p>
         </div>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
+        <button
           className="btnadm"
           onClick={handleChange}
         >
           Acessar
-        </motion.button>
+        </button>
 
       </div>
 

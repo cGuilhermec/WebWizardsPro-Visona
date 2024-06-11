@@ -10,7 +10,7 @@ export default function App() {
       <CityProvider>
         <NameForGraphProvider>
           <Router>
-            <AppRouter />;
+            <AppRouter />
           </Router>
         </NameForGraphProvider>
       </CityProvider>

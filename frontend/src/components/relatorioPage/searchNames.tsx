@@ -1,7 +1,14 @@
 import { useNameForGraph } from "../../context/useNameForGraphContext";
 
+import { useAllUsers } from "../../context/getAllUsers";
+
 export const BuscasNames: React.FC = () => {
   const { selectedNameForGraph, setSelectedNameForGraph } = useNameForGraph();
+
+  const userId = localStorage.getItem("@Auth:userId") || "";
+
+  const users = useAllUsers(userId);
+  console.log(users);
 
   const handleCitySelect = (event: any) => {
     const names = event.target.value;
@@ -9,20 +16,20 @@ export const BuscasNames: React.FC = () => {
   };
 
   return (
-    <div className="row-1" onChange={handleCitySelect} defaultValue="">
-      <select className="seletor-cidade">
-        <option value="" selected disabled>
+    <div className="row-1-graficos" defaultValue="">
+      <select
+        className="seletor-cidade"
+        onChange={handleCitySelect}
+        defaultValue=""
+      >
+        <option value="" disabled>
           Selecione um Contribuidor
         </option>
-        <option value="Gustavo Carvalho" className="option-content">
-          Gustavo Carvalho
-        </option>
-        <option value="Guilherme Carvalho" className="option-content">
-          Guilherme Carvalho
-        </option>
-        <option value="Caio Azevedo" className="option-content">
-          Caio Azevedo
-        </option>
+        {users.map((user, index) => (
+          <option key={index} onClick={() => handleCitySelect(user)}>
+            {user.name}
+          </option>
+        ))}
       </select>
     </div>
   );

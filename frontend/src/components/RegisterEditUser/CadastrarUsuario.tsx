@@ -41,6 +41,9 @@ export default function CadastrarUsuario() {
           ref={roleRef}
           onChange={(e) => setRoleInput(e.target.value)}
         >
+          <option value="adm" className="option-content" disabled>
+            Selecione uma função
+          </option>
           <option value="adm" className="option-content">
             Adm
           </option>
