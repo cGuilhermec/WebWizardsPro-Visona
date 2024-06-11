@@ -23,7 +23,7 @@ export default function PanelAdm() {
         exit={{ opacity: 1, y: -1000 }}
         className="body"
       >
-        <img className="img-boxmap" src={map} />
+        {/* <img className="img-boxmap" src={map} /> */}
         <img className="img-boxsat" src={satellite} />
         <div className="cardcontainer">
           <Card1 />

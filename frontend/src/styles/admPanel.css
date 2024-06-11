@@ -31,12 +31,12 @@ body {
 
 .img-boxmap {
   position: absolute;
-  width: 490px;
-  height: 370px;
+  width: 690px;
+  height: 470px;
   top: 70px;
-  left: 1380.33px;
+  left: 1190.33px;
   rotate: -171.82º;
-  opacity: 90%;
+  opacity: 100%;
 }
 
 .img-boxsat {

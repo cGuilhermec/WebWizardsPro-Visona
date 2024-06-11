@@ -2,7 +2,6 @@ body{
     width: 100vw;
     height: 100vh;
     margin: 0;
-    overflow: hidden;
 }
 
 .body{
@@ -14,11 +13,8 @@ body{
     width: 100vw;
     height: 100vh;
     margin: 0;
-    margin-top: 55px;
 
-    /* background-color: #F8E1D6; */
-
-    overflow: hidden;
+    font-family: 'Inter', sans-serif;
 }
 
 .container-datas{
@@ -27,6 +23,7 @@ body{
     height: 800px;
 
     z-index: 10;
+    margin-top: 265px;
 }
 
 .container{
@@ -97,8 +94,10 @@ body{
     padding-bottom: 15px;
     margin-top: 5px;
 
+    padding-top: 15px;
+
     flex-direction: column;
-    height: 465px;
+    height: 450px;
     width: 100%;
     background-color: #FFFFFF;
 
@@ -122,7 +121,7 @@ body{
     margin-top: 5px;
 
     flex-direction: column;
-    height: 530px;
+    height: 510px;
     width: 100%;
     background-color: #f6f6f6;
 
@@ -300,6 +299,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 20px;
 }
 
 .seta-dropdown,
@@ -325,7 +325,7 @@ body{
 .btnsubmit{
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: space-between;
     width: 100%;
 }
 
@@ -346,6 +346,21 @@ body{
 
 .btnsubmit button:hover {
     background-color: #1ca349;
+}
+
+.btnsubmit .btnExcluir{
+    background-color: transparent;
+    width: 40px;
+}
+
+.btnsubmit .btnExcluir:hover{
+    background-color: rgb(255, 62, 62);
+    width: 40px;
+}
+
+.btnExcluir img{
+    width: 60%;
+    height: 60%;
 }
 
 .btn1.active{
@@ -382,12 +397,4 @@ body{
     align-items: center;
     justify-content: center;
     width: 100%;
-}
-
-.editar-senha input{
-    border: 2px dotted rgb(255, 0, 0);
-}
-
-.editar-senha input:focus{
-    border: 2px solid rgb(255, 0, 0);
 }

@@ -123,6 +123,9 @@ export default function EditarUsuario() {
             ref={roleRef}
             onChange={(e) => setRoleInput(e.target.value)}
           >
+            <option value="adm" className="option-content" disabled>
+              Selecione uma função
+            </option>
             <option value="adm" className="option-content">
               Adm
             </option>
@@ -148,6 +151,7 @@ export default function EditarUsuario() {
         </div>
 
         <div className="btnsubmit">
+          <button className="btnExcluir"><img src="https://cdn-icons-png.flaticon.com/512/3717/3717049.png" alt="" /></button>
           <button
             onClick={async (e: FormEvent) => {
               e.preventDefault();

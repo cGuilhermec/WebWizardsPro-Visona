@@ -41,6 +41,10 @@
   height: 100%;
   text-align: left;
 }
+
+.card1:hover, .card2:hover{
+  box-shadow: 0 1.5px 8px rgba(0, 0, 0, 0.5);
+}
   
 .cardtxt2-1, .cardtxt1-1{
   display: flex;
@@ -82,9 +86,6 @@
 .btnadm:hover{
   cursor: pointer;
   box-shadow: 0 1.5px 8px rgba(0, 0, 0, 0.3);
-
-  margin-top: -2px;
-
   transition: 0.2s;
 }
 

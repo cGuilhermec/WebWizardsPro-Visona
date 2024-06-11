@@ -9,10 +9,10 @@ export const BuscasCity: React.FC = () => {
   };
 
   return (
-    <div className="row-1" onChange={handleCitySelect} defaultValue="">
+    <div onChange={handleCitySelect} defaultValue="">
       <select className="seletor-cidade">
         <option value="" selected disabled>
-          Selecione uma Cidade
+          Selecione um Projeto
         </option>
         <option value="Atibaia" className="option-content">
           Atibaia

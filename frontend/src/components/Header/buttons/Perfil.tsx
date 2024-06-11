@@ -34,7 +34,7 @@ export default function Perfil() {
           {/* <div className="ft_perfil">
             <img src={perfilPhoto as string} alt="" />
           </div> */}
-          <div>{nome}</div>
+          <div className="nome">{nome}</div>
         </button>
 
         <nav
