@@ -7,6 +7,7 @@ import { useAllUsers } from "../../context/getAllUsers";
 import { User } from "../../interfaces/IUser";
 import useUpdateUser from "../../context/useUpdateUser";
 import { motion as m } from "framer-motion";
+import { DisabledUser } from "../../context/useDisabledUser";
 
 export default function EditarUsuario() {
   // Estado para controlar se o dropdown está aberto ou fechado
@@ -24,10 +25,10 @@ export default function EditarUsuario() {
   // Referência para o elemento do botão dropdown
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const userId = localStorage.getItem("@Auth:userId");
+  const userId = localStorage.getItem("@Auth:userId") || "";
   const users = useAllUsers(userId || "");
 
-  const id = selectedUser?.id;
+  const id = selectedUser?.id || "";
   const { nameRef, emailRef, roleRef, passwordRef, handleSubmit, updatedUser } =
     useUpdateUser(id || "");
 
@@ -59,6 +60,7 @@ export default function EditarUsuario() {
     setPasswordInput(user.password);
     setIsOpen(false); // Fecha o dropdown após selecionar um usuário
   };
+
 
   return (
     <m.div
@@ -151,12 +153,16 @@ export default function EditarUsuario() {
         </div>
 
         <div className="btnsubmit">
-          <button className="btnExcluir"><img src="https://cdn-icons-png.flaticon.com/512/3717/3717049.png" alt="" /></button>
+          <button onClick={ async (e: React.MouseEvent) => {
+            e.preventDefault();
+            DisabledUser(userId, id);
+          } } 
+          className="btnExcluir" ><img src="https://cdn-icons-png.flaticon.com/512/3717/3717049.png" alt="" /></button>
           <button
             onClick={async (e: FormEvent) => {
               e.preventDefault();
               await handleSubmit();
-            }}
+            }} 
           >
             Confirmar
           </button>
