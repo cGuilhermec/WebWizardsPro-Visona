@@ -47,7 +47,7 @@ export default function MeuPerfil() {
 
           <div className="dados1 btnConf">
             <label htmlFor="">Senha:</label>
-            <input ref={passwordRef} className="dados2"></input>
+            <input ref={passwordRef} type="password" className="dados2"></input>
             <div className="btnConfirmar">
               <button
                 onClick={async (e: FormEvent) => {
