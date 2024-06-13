@@ -7,7 +7,6 @@ import {
 
 import PanelAdm from "../pages/AdmPanel";
 import RegisterEditUser from "../pages/RegisterEditUser";
-import { User } from "../pages/User";
 import LoginPage from "../pages/loginPage";
 import { PrivateRoute } from "./PrivateRoute";
 import { AnimatePresence } from "framer-motion";
@@ -36,10 +35,6 @@ export const AppRouter = () => {
 
         <Route path="/relatorio-page" element={<PrivateRoute />}>
           <Route path="/relatorio-page" element={<RelatorioEditorPage />} />
-        </Route>
-
-        <Route path="/user" element={<PrivateRoute />}>
-          <Route path="/user" element={<User />} />
         </Route>
 
         <Route path="/meuperfil" element={<PrivateRoute />}>

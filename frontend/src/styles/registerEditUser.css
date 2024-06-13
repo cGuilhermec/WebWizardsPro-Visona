@@ -398,3 +398,44 @@ body{
     justify-content: center;
     width: 100%;
 }
+
+/* dark mode */
+
+
+.dark-mode .container-data-1 {
+    background-color: #D0D0D0;
+}
+
+.dark-mode .container-data-2 {
+    background-color: #D0D0D0;
+}
+
+.dark-mode .container-datas input{
+    background-color: #bababa;
+}
+
+.dark-mode .container-datas select{
+    background-color: #bababa;
+
+}
+
+.dark-mode .btn-dropdown1{
+    background-color: #bababa;
+    border: 1px solid #CCCCCC;
+} 
+
+.dark-mode .btnsubmit button{
+    background-color: #D25713;
+}
+
+.dark-mode .btnsubmit button:hover {
+    background-color: #AA450D;
+}
+
+.dark-mode .frase2 {
+    color: white;
+}
+
+.dark-mode .frase1 {
+    color: white;
+}

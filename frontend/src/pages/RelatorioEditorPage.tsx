@@ -13,7 +13,7 @@ import BtnExtrair from "../components/relatorioPage/BtnExtrair";
 
 export default function RelatorioEditorPage() {
   return (
-    <div>
+    <div className="body">
       <Header />
       <motion.div
         initial={{ y: "100%" }}

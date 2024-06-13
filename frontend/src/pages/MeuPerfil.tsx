@@ -18,7 +18,7 @@ export default function MeuPerfil() {
   const { handleSumit, passwordRef } = useChangePassword(userId || "");
 
   return (
-    <div>
+    <div className="body">
       <Header />
       <motion.div
         className="container-perfil"
