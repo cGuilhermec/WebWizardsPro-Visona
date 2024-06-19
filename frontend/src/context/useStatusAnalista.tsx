@@ -31,11 +31,16 @@ const useGraphStatusAnalista = () => {
         const data: DataItem2[] = response.data;
 
         const chartData: Array<[string, number, number]> = data.map(
-          (item: any) => [
-            item.analista,
-            item.andamento !== null ? parseFloat(item.andamento) : 0.0,
-            parseFloat(item.finalizado),
-          ]
+          (item: any) => {
+            // Log the item for debugging
+            console.log("Item:", item);
+
+            const analista = (item.analista === "NULL" || item.analista === null || item.analista === undefined || item.analista === "") ? "" : item.analista;
+            const andamento = item.andamento !== null ? parseFloat(item.andamento) : 0.0;
+            const finalizado = parseFloat(item.finalizado);
+
+            return [analista, andamento, finalizado];
+          }
         );
 
         setDados([["analista", "andamento", "finalizado"], ...chartData]);

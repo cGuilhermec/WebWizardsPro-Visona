@@ -27,10 +27,12 @@ const useGraphData = () => {
           },
         });
         const data: DataItem[] = response.data;
+
         const chartData: Array<[string, number]> = data.map((item: any) => [
-          item.status || "Desconhecido",
+          item.status === null || item.status === undefined || item.status === "NULL" ? "Não atribuído" : item.status,
           parseFloat(item.total_km2),
         ]);
+
         setDados([["Status", "total_km2"], ...chartData]);
       } catch (error) {
         setError(error as Error);
