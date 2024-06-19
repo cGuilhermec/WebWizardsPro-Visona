@@ -38,7 +38,6 @@ const useGraphData = () => {
         setError(error as Error);
       }
     };
-
     getData();
   }, [selectedCity]);
 

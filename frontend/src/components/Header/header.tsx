@@ -17,7 +17,7 @@ export default function Header(){
             </div>
             <div className="final">
                 <HomeButton />
-                {/* <DarkMode /> */}
+                <DarkMode />
                 <Perfil />
             </div>
         </header>

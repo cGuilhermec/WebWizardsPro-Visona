@@ -66,7 +66,7 @@ const updateUserById = async (user: IUserUpdateInterface) => {
     const client = await createConection();
 
     const userUpdated = await client.query(
-        'UPDATE users SET name = $1, email = $2, role = $3 WHERE id = $4', [user.name, user.email, user.role, user.id]
+        'UPDATE users SET name = $1, email = $2, role = $3, password = $4 WHERE id = $5', [user.name, user.email, user.role, user.password, user.id]
     );
 
     return userUpdated.rows;
@@ -97,6 +97,16 @@ const reativarUserById = async (id: string) => {
 
 };
 
+const changePassword = async (new_password: string, id: string): Promise<void> => {
+
+    const client = await createConection();
+
+    await client.query(
+        'UPDATE users SET password = $1 WHERE id = $2', [new_password, id]
+    );
+
+}
+
 export const userModel = {
     createUser,
     getUserByEmail,
@@ -105,5 +115,6 @@ export const userModel = {
     getUserById,
     updateUserById,
     desativarUserById,
-    reativarUserById
+    reativarUserById,
+    changePassword
 };
