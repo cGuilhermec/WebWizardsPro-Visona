@@ -1,0 +1,24 @@
+
+.extrair{
+    background-color: #D25713;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-right: 63px;
+}
+
+.extrair:hover{
+    box-shadow: 3px 3px 5px rgb(0, 0, 0, .4);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.container-extrair{
+    width: 1450px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+}

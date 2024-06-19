@@ -37,21 +37,22 @@ export const AuthProvider: React.FC<AuthContextProps> = ({ children }) => {
 
       const { token, user, role, message, userId, name } = response.data;
 
-      if (message.error) {
-        alert(message);
-      } else {
-        alert(message);
+      if (response.status != 200) {
+        alert("Email ou senha invalidas, tente de novo!");
+      }  
+       else {
         setUser(response.data.user);
 
         //Salva o token e os dados dos usuários no localStorage.
         localStorage.setItem("@Auth:name", name);
         localStorage.setItem("@Auth:role", role);
         localStorage.setItem("@Auth:userId", userId);
+        localStorage.setItem("@Auth:email", user);
         localStorage.setItem("@Auth:user", JSON.stringify(user));
         localStorage.setItem("@Auth:token", token);
       }
     } catch (error) {
-      console.error("Erro capturado durante o login: ", error);
+    alert("Email ou senha invalidas, tente de novo!");
     }
   };
 

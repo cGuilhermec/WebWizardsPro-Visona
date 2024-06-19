@@ -1,15 +1,20 @@
 import { FormEvent, useState } from "react";
 import { useCadastroUser } from "../../context/useCadastroUser";
+import { motion } from "framer-motion";
 
 export default function CadastrarUsuario() {
   const [roleInput, setRoleInput] = useState("");
   const userId = localStorage.getItem("@Auth:userId");
-  const { nameRef, emailRef, roleRef, handleSubmit } = useCadastroUser(
-    userId || ""
-  );
+  const { nameRef, emailRef, roleRef, passwordRef, handleSubmit } =
+    useCadastroUser(userId || "");
 
   return (
-    <form className="container-data-1">
+    <motion.form
+      initial={{ x: -1000 }}
+      animate={{ x: 0 }}
+      transition={{ duration: 0.5 }}
+      className="container-data-1"
+    >
       <div className="inputs">
         <label htmlFor="" className="labels">
           Nome:{" "}
@@ -36,6 +41,9 @@ export default function CadastrarUsuario() {
           ref={roleRef}
           onChange={(e) => setRoleInput(e.target.value)}
         >
+          <option value="adm" className="option-content" disabled>
+            Selecione uma função
+          </option>
           <option value="adm" className="option-content">
             Adm
           </option>
@@ -48,6 +56,13 @@ export default function CadastrarUsuario() {
         </select>
       </div>
 
+      <div className="inputs">
+        <label htmlFor="" className="labels">
+          Password:{" "}
+        </label>
+        <input ref={passwordRef} type="password" placeholder="Insira a senha"/>
+      </div>
+
       <div
         onClick={async (e: FormEvent) => {
           e.preventDefault();
@@ -57,6 +72,6 @@ export default function CadastrarUsuario() {
       >
         <button>Confirmar</button>
       </div>
-    </form>
+    </motion.form>
   );
 }

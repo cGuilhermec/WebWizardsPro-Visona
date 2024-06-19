@@ -2,10 +2,13 @@ import { FormEvent, useContext, useEffect, useState } from "react";
 import "../styles/loginPage.css";
 import { AuthContext } from "../interfaces/IAuthContext";
 import { useNavigate } from "react-router-dom";
+import VideoComponent from "../components/LoginPage/VideoComponent";
+import { motion } from "framer-motion";
+
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("guilherme@gmail.com");
-  const [password, setPassword] = useState("123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const { SignIn, Signed } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -15,7 +18,7 @@ export default function LoginPage() {
       if (storedRole === "adm") {
         navigate("/paneladm");
       } else {
-        navigate("/user");
+        navigate("/relatorio-page");
       }
     }
   }, [navigate, Signed]);
@@ -33,7 +36,10 @@ export default function LoginPage() {
   return (
     <div className="bloco">
       <div className="bloco1">
-        <div className="bloco2">
+        <VideoComponent />
+        <div
+          className="bloco2"
+        >
           <div className="bloco3">
             <img
               decoding="async"
@@ -63,9 +69,13 @@ export default function LoginPage() {
                   />
                   <span className="focus-input" data-placeholder="Senha"></span>
                 </div>
-                <button type="submit" className="loginbtn">
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  type="submit"
+                  className="loginbtn"
+                >
                   Login
-                </button>
+                </motion.button>
               </form>
             </div>
           </div>
