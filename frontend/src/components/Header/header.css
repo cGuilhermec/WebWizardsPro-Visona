@@ -2,6 +2,7 @@
 
 
 body{
+    transition: 0.5s;
     background: linear-gradient(to right bottom, #fdece4 , #ffccb4, #feba9a);
     font-family: 'Inter', sans-serif;
 }
@@ -366,3 +367,9 @@ ul{
 }
 
 /*------Final DarkMode Btn-------*/
+
+.dark-mode .body{
+    background-color: #323232;
+    transition: 0.5s;
+}
+

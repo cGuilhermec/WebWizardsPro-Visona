@@ -40,10 +40,6 @@ export const AppRouter = () => {
         <Route path="/meuperfil" element={<PrivateRoute />}>
           <Route path="/meuperfil" element={<MeuPerfil />} />
         </Route>
-
-        <Route path="/meuperfil" element={<PrivateRoute />}>
-          <Route path="/meuperfil" element={<MeuPerfil />} />
-        </Route>
       </Routes>
     </AnimatePresence>
   );
