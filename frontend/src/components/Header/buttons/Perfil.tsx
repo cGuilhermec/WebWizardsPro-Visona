@@ -31,9 +31,6 @@ export default function Perfil() {
           onClick={onClick}
           className={`perfil ${isActive ? "active" : "inactive"}`}
         >
-          {/* <div className="ft_perfil">
-            <img src={perfilPhoto as string} alt="" />
-          </div> */}
           <div className="nome">{nome}</div>
         </button>
 
