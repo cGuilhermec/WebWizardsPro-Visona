@@ -5,6 +5,7 @@ import { api } from "../api/api";
 const useUpdateUser = (id: string) => {
   const nameRef = useRef<HTMLInputElement | null>(null);
   const emailRef = useRef<HTMLInputElement | null>(null);
+  const passwordRef = useRef<HTMLInputElement | null>(null);
   const roleRef = useRef<HTMLSelectElement | null>(null);
   const [updatedUser, setUpdateUser] = useState<User[]>([]);
 
@@ -14,14 +15,16 @@ const useUpdateUser = (id: string) => {
       if (
         !nameRef.current?.value ||
         !emailRef.current?.value ||
-        !roleRef.current?.value
+        !roleRef.current?.value ||
+        !passwordRef.current?.value
       ) {
         return alert("Complete todos os campos, antes de enviar");
       }
       if (
         nameRef.current?.value ||
         emailRef.current?.value ||
-        roleRef.current?.value
+        roleRef.current?.value ||
+        passwordRef.current?.value
       ) {
         console.log(
           `Dados do user que esta sendo atualizado: nome: ${nameRef.current?.value}, email: ${emailRef.current?.value}, role: ${roleRef.current?.value} id:${id}`
@@ -34,6 +37,7 @@ const useUpdateUser = (id: string) => {
             name: nameRef.current?.value,
             email: emailRef.current?.value,
             role: roleRef.current?.value,
+            password: passwordRef.current?.value,
           },
           {
             headers: {
@@ -65,7 +69,7 @@ const useUpdateUser = (id: string) => {
     }
   };
 
-  return { nameRef, emailRef, roleRef, handleSubmit, updatedUser };
+  return { nameRef, emailRef, roleRef, passwordRef, handleSubmit, updatedUser };
 };
 
 export default useUpdateUser;

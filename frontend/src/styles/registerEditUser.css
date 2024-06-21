@@ -14,17 +14,16 @@ body{
     height: 100vh;
     margin: 0;
 
-    background-color: #F8E1D6;
-
     font-family: 'Inter', sans-serif;
 }
 
 .container-datas{
     display: flex;
     flex-direction: column;
-    height: 550px;
+    height: 800px;
 
     z-index: 10;
+    margin-top: 265px;
 }
 
 .container{
@@ -91,12 +90,14 @@ body{
                 -3px -3px 5px rgba(0, 0, 0, 0.2);
 
 
-    padding-top: 15px;
+    padding-top: 10px;
     padding-bottom: 15px;
     margin-top: 5px;
 
+    padding-top: 15px;
+
     flex-direction: column;
-    height: 365vh;
+    height: 450px;
     width: 100%;
     background-color: #FFFFFF;
 
@@ -120,7 +121,7 @@ body{
     margin-top: 5px;
 
     flex-direction: column;
-    height: 100%;
+    height: 510px;
     width: 100%;
     background-color: #f6f6f6;
 
@@ -298,6 +299,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-top: 20px;
 }
 
 .seta-dropdown,
@@ -323,7 +325,7 @@ body{
 .btnsubmit{
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: space-between;
     width: 100%;
 }
 
@@ -344,6 +346,21 @@ body{
 
 .btnsubmit button:hover {
     background-color: #1ca349;
+}
+
+.btnsubmit .btnExcluir{
+    background-color: transparent;
+    width: 40px;
+}
+
+.btnsubmit .btnExcluir:hover{
+    background-color: rgb(255, 62, 62);
+    width: 40px;
+}
+
+.btnExcluir img{
+    width: 60%;
+    height: 60%;
 }
 
 .btn1.active{
@@ -382,3 +399,43 @@ body{
     width: 100%;
 }
 
+/* dark mode */
+
+
+.dark-mode .container-data-1 {
+    background-color: #D0D0D0;
+}
+
+.dark-mode .container-data-2 {
+    background-color: #D0D0D0;
+}
+
+.dark-mode .container-datas input{
+    background-color: #bababa;
+}
+
+.dark-mode .container-datas select{
+    background-color: #bababa;
+
+}
+
+.dark-mode .btn-dropdown1{
+    background-color: #bababa;
+    border: 1px solid #CCCCCC;
+} 
+
+.dark-mode .btnsubmit button{
+    background-color: #D25713;
+}
+
+.dark-mode .btnsubmit button:hover {
+    background-color: #AA450D;
+}
+
+.dark-mode .frase2 {
+    color: white;
+}
+
+.dark-mode .frase1 {
+    color: white;
+}
